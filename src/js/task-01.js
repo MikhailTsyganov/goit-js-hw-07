@@ -1,10 +1,10 @@
 
 const itemEl = document.querySelectorAll('.item')
-console.log(itemEl);
+// console.log(itemEl);
 console.log(`В списке ${itemEl.length} категории.`);
 
 
-for (const item of itemEl) {
+const elements = itemEl.forEach(item => {
     const itemTitle = item.querySelector('h2').textContent
 
     console.log(`Категория: ${itemTitle}`);
@@ -15,5 +15,4 @@ for (const item of itemEl) {
 
 
     console.log(`Количество элементов: ${listItemEl}`);
-
-}
+})

@@ -11,20 +11,25 @@ const ingredients = [
 
 const ingredientsContainer = document.querySelector('#ingredients')
 
-const elements = [];
+// const elements = [];
 
-
-
-for (let i = 0; i < ingredients.length; i += 1) {
-  console.log(ingredients[i]);
-  const item = document.createElement('li')
-  item.textContent = ingredients[i];
+//   ingredients.forEach((ingredient) => {
+//   const item = document.createElement('li')
+//   item.textContent = ingredient;
   
-  elements.push(item)
-}
+//   elements.push(item)
+// });
+
   
+
+
+const elements = ingredients.map((ingredient) => {
+  
+    const item = document.createElement('li')
+  item.textContent = ingredient;
+  
+  return item;
+  
+});
+
 ingredientsContainer.append(...elements)
-
-// console.log(elements);
-
-// console.log(makeScript(ingredients));

@@ -1,17 +1,22 @@
-const InputEl = document.querySelector('#validation-input');
-InputEl.style.border = '3px solid #bdbdbd';
+const inputEl = document.querySelector('#validation-input');
+inputEl.style.border = '3px solid #bdbdbd';
 
-InputEl.classList.add('valid', 'invalid')
 
-InputEl.addEventListener('blur', onInputBlur)
+
+inputEl.addEventListener('blur', onInputBlur)
 
 function onInputBlur(event) {
-    if (InputEl.value.length == InputEl.dataset.length) {
+    if (inputEl.value.length == inputEl.dataset.length) {
+        inputEl.classList.add('valid')
+        inputEl.classList.remove('invalid')
         const validClass = document.querySelector('.valid');
-        
-        return validClass.style.borderColor = '#4caf50';;
-    } 
+        validClass.style.borderColor = '#4caf50';
+        return;
+    }
+    inputEl.classList.add('invalid')
+    inputEl.classList.remove('valid')
     const invalidClass = document.querySelector('.invalid');
+    
     invalidClass.style.borderColor = '#f44336';
 
 }

@@ -20,11 +20,22 @@ const flexClass = document.querySelector('.gallery--flex');
 flexClass.style.display = 'flex';
 
 
-const elements = images.map((image) => {
-  const imageEl = listEl.insertAdjacentHTML('afterbegin', `<li><img src = ${image.url} alt = '${image.alt}'></li>`);
-  const addClassImage = document.querySelector('img')
-  addClassImage.classList.add('gallery-img');
-  const imgClass = document.querySelector('.gallery-img');
-  imgClass.style.width = '30vw'
-  return imageEl;
- })
+const makeMarkup = function ({ url, alt }) {
+  
+  return `<li><img src = ${url} alt = '${alt}'></li>`
+  
+}
+
+const makeImages = images.map(makeMarkup).join('')
+
+listEl.insertAdjacentHTML('afterbegin', makeImages)
+
+
+const addClassImage = document.querySelectorAll('img')
+addClassImage.forEach(item => {
+  item.classList.add('gallery-img');
+})
+
+const imgClass = document.querySelectorAll('.gallery-img');
+imgClass.forEach(item => {item.style.width = '30vw'})
+  
